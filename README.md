@@ -12,8 +12,11 @@ their life into multiple working areas. This project interests me because I use
 stickies as my primary agenda and I would like to be able to synchronize them to a
 calendar.
 
-- item 2
-- item 3
+## User Stories
 
-An example of text with **bold** and *italic* fonts.  Note that the IntelliJ markdown previewer doesn't seem to render 
-the bold and italic fonts correctly but they will appear correctly on GitHub.
+- As a user, I want to be able to have multiple unique sticky notes each with 
+their own name
+- As a user, I want to be able to add and remove tasks from my stickies
+- As a user, I want to be able to view the tasks on each of my stickies
+- As a user, I want to be able to add and remove additional non-task information
+to my stickies
