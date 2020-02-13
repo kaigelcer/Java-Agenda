@@ -16,7 +16,7 @@ calendar.
 
 - As a user, I want to be able to have multiple unique sticky notes each with 
 their own name
-- As a user, I want to be able to add and remove tasks from my stickies
-- As a user, I want to be able to view the tasks on each of my stickies
-- As a user, I want to be able to add and remove additional non-task information
-to my stickies
+- As a user, I want to be able to add and remove agenda items from my stickies
+- As a user, I want to be able to view the items on each of my stickies
+- As a user, I want to be able to add and remove additional non-agenda information
+(e.g. course breakdown) on my stickies
