@@ -18,6 +18,10 @@ public class StickyNote {
         this.info = "";
     }
 
+    public String getName() {
+        return name;
+    }
+
     // MODIFIES: this
     // EFFECTS: adds new item to AgendaItems
     public void addItem(AgendaItem item) {

@@ -14,8 +14,8 @@ calendar.
 
 ## User Stories
 
-- As a user, I want to be able to have multiple unique sticky notes each with 
-their own name
+- As a user, I want to be able to have unique sticky notes, each with 
+their own name/title
 - As a user, I want to be able to add and remove agenda items from my stickies
 - As a user, I want to be able to view the items on each of my stickies
 - As a user, I want to be able to add and remove additional non-agenda information

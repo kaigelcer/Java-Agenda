@@ -9,17 +9,17 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+
 
 public class StickiesApp {
     private StickyNote stickyNote = new StickyNote("My Sticky");
+    LinkedList<StickyNote> myNotes = new LinkedList<>();
     private Scanner input;
 
     // EFFECTS: runs the teller application
     public StickiesApp() throws ParseException {
+        myNotes.add(stickyNote);
         runStickies();
     }
 
@@ -60,6 +60,10 @@ public class StickiesApp {
             doDeleteItem();
         } else if (command.equals("g")) {
             doViewInfo();
+        } else if (command.equals("s")) {
+            doSelectSticky();
+        } else if (command.equals("+")) {
+            doCreateNewSticky();
         } else {
             System.out.println("Selection not valid...");
         }
@@ -69,12 +73,17 @@ public class StickiesApp {
 
     // EFFECTS: displays menu of options to user
     private void displayMenu() {
-        System.out.println("\nSelect from:");
+        System.out.println("\nThese are your current sticky notes:");
+        this.listAllStickies();
+        System.out.println("You are currently editing: " + stickyNote.getName());
+        System.out.println("Choose from the following options:");
         System.out.println("\tn -> add new agenda item");
         System.out.println("\td -> delete an agenda item");
         System.out.println("\tv -> view agenda items");
         System.out.println("\ti -> add new info");
         System.out.println("\tg -> get current info");
+        System.out.println("\ts -> select a different note to edit ");
+        System.out.println("\t+ -> create a new sticky note");
         System.out.println("\tq -> quit");
     }
 
@@ -122,13 +131,42 @@ public class StickiesApp {
         StickyNote selected = stickyNote;
         System.out.println("Enter the task you wish to delete: $");
         String delete = input.nextLine();
-        stickyNote.deleteItem(delete);
+        selected.deleteItem(delete);
     }
 
     // EFFECTS: displays all information from stickyNote
     private void doViewInfo() {
         StickyNote selected = stickyNote;
         System.out.println(selected.getInfo());
+    }
+
+    // MODIFIES: this
+    // EFFECTS: If there is a note named selection in myNotes, set stickyNote field equal to said note
+    private void doSelectSticky() {
+        System.out.println("Enter the name of the sticky you wish to select: ");
+        String selection = input.nextLine();
+        for (StickyNote sticky : myNotes) {
+            if (sticky.getName().equals(selection)) {
+                stickyNote = sticky;
+            }
+        }
+    }
+
+    private void doCreateNewSticky() {
+        System.out.println("Enter the name of your new sticky: ");
+        StickyNote newNote = new StickyNote(input.nextLine());
+        myNotes.add(newNote);
+        stickyNote = newNote;
+
+    }
+
+
+
+    // EFFECTS: prints the names of all StickyNotes in myStickies
+    private void listAllStickies() {
+        for (StickyNote sticky : myNotes) {
+            System.out.println("\t-> " + sticky.getName());
+        }
     }
 
 
