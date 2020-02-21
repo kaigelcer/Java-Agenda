@@ -20,3 +20,6 @@ their own name/title
 - As a user, I want to be able to view the items on each of my stickies
 - As a user, I want to be able to add and remove additional non-agenda information
 (e.g. course breakdown) on my stickies
+
+- As a user, I want to be able to save my sticky notes to file
+- As a user, I want to be able to load stickies from file when program starts
