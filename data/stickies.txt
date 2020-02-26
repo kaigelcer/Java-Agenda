@@ -1,0 +1,3 @@
+Math,,Webwork,01/01/01,Midterm,02/02/02,,Course is pass failWoohoo 
+CPSC,,Lab,03/03/03,Assignment,04/04/04,,Very fun course
+CRWR,,Write stuff,02/03/04,,Arts course lol 

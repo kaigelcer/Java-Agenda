@@ -2,6 +2,8 @@ package ui;
 
 import model.AgendaItem;
 import model.StickyNote;
+import persistence.Reader;
+import persistence.Writer;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -13,8 +15,9 @@ import java.util.*;
 
 
 public class StickiesApp {
+    private static final String NOTES_FILE = "./data/stickies.txt";
     private StickyNote stickyNote = new StickyNote("My Sticky");
-    LinkedList<StickyNote> myNotes = new LinkedList<>();
+    List<StickyNote> myNotes = new LinkedList<>();
     private Scanner input;
 
     // EFFECTS: runs the teller application
@@ -29,14 +32,18 @@ public class StickiesApp {
         boolean keepGoing = true;
         String command = null;
         input = new Scanner(System.in);
+        loadNotes();
 
 
         while (keepGoing) {
+
             displayMenu();
             command = input.nextLine();
             command = command.toLowerCase();
 
+
             if (command.equals("q")) {
+                saveAccounts();
                 keepGoing = false;
             } else {
                 processCommand(command);
@@ -44,6 +51,35 @@ public class StickiesApp {
         }
 
         System.out.println("\nGoodbye!");
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads notes from NOTES_file, if that file exists;
+    // otherwise initializes new note with default value
+    private void loadNotes() {
+        try {
+            myNotes = Reader.readNotes(new File(NOTES_FILE));
+            stickyNote = myNotes.get(0);
+        } catch (IOException e) {
+            System.out.println("Error loading notes, new note created");
+        }
+    }
+
+    // EFFECTS: saves state of notes to ACCOUNTS_FILE
+    private void saveAccounts() {
+        try {
+            Writer writer = new Writer(new File(NOTES_FILE));
+            for (StickyNote note : myNotes) {
+                writer.write(note);
+            }
+            writer.close();
+            System.out.println("Accounts saved to file " + NOTES_FILE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to save accounts to " + NOTES_FILE);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            // this is due to a programming error
+        }
     }
 
 
@@ -84,7 +120,7 @@ public class StickiesApp {
         System.out.println("\tg -> get current info");
         System.out.println("\ts -> select a different note to edit ");
         System.out.println("\t+ -> create a new sticky note");
-        System.out.println("\tq -> quit");
+        System.out.println("\tq -> save and quit");
     }
 
     // MODIFIES: this

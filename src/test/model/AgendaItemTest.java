@@ -21,14 +21,14 @@ class AgendaItemTest {
     @Test
     public void gettersTest() {
         assertEquals("WebWork", testItem.getTask());
-        assertEquals(calendar, testItem.getDueDate());
+        assertEquals(AgendaItem.SDF.format(calendar.getTime()), testItem.getDueDate());
     }
 
     @Test
     public void editorsTest() {
         Calendar newCalendar = new GregorianCalendar(2030,05,2);
         testItem.editDueDate(newCalendar);
-        assertEquals(newCalendar, testItem.getDueDate());
+        assertEquals(AgendaItem.SDF.format(newCalendar.getTime()), testItem.getDueDate());
         testItem.editTask("WebWork and Notes");
         assertEquals("WebWork and Notes", testItem.getTask());
     }

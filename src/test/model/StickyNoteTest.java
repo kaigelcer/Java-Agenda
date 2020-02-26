@@ -23,6 +23,11 @@ public class StickyNoteTest {
     }
 
     @Test
+    public void nameTest() {
+        assertEquals("Math", testSticky.getName());
+    }
+
+    @Test
     public void addTest() {
         testSticky.addItem(webWork);
         testSticky.addItem(notes);
@@ -49,7 +54,7 @@ public class StickyNoteTest {
     public void infoTest() {
         testSticky.editInfo("Midterm is worth 50% of overall grade");
         testSticky.editInfo("Final Exam is open book");
-        String expectedResult = "Midterm is worth 50% of overall grade" + "\n" + "Final Exam is open book" + "\n";
+        String expectedResult = "Midterm is worth 50% of overall grade" + " " + "Final Exam is open book" + " ";
         assertEquals(expectedResult, testSticky.getInfo());
     }
 

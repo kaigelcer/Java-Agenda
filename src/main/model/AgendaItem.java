@@ -1,5 +1,6 @@
 package model;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -8,6 +9,7 @@ public class AgendaItem {
 
     private String task;
     private Calendar dueDate;
+    public static SimpleDateFormat SDF = new SimpleDateFormat("MM/dd/yy");
 
     // REQUIRES: task has a non-zero length, dueDate is in the future
     // EFFECTS: creates AgendaItem with task and dueDate
@@ -20,8 +22,8 @@ public class AgendaItem {
         return task;
     }
 
-    public Calendar getDueDate() {
-        return dueDate;
+    public String getDueDate() {
+        return SDF.format(dueDate.getTime());
     }
 
     // MODIFIES: this
