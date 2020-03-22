@@ -8,7 +8,7 @@ import java.util.Date;
 public class AgendaItem {
 
     private String task;
-    private Calendar dueDate;
+    public Calendar dueDate;
     public static SimpleDateFormat SDF = new SimpleDateFormat("MM/dd/yy");
 
     // REQUIRES: task has a non-zero length, dueDate is in the future

@@ -54,7 +54,7 @@ public class StickyNoteTest {
     public void infoTest() {
         testSticky.editInfo("Midterm is worth 50% of overall grade");
         testSticky.editInfo("Final Exam is open book");
-        String expectedResult = "Midterm is worth 50% of overall grade" + " " + "Final Exam is open book" + " ";
+        String expectedResult = "Final Exam is open book";
         assertEquals(expectedResult, testSticky.getInfo());
     }
 

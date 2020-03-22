@@ -57,8 +57,8 @@ public class WriterTest {
         // now read them back in and verify that the accounts have the expected values
         try {
             List<String> lines = Reader.readFile(new File(TEST_FILE));
-            assertEquals("STAT 251,,WebWork,05/30/20,Notes,05/30/20,,8AM Lecture ", lines.get(0));
-            assertEquals("ELEC 344,,Lab Report,05/30/20,,Alternating labs/tutorials ", lines.get(1));
+            assertEquals("STAT 251,,WebWork,05/30/20,Notes,05/30/20,,8AM Lecture", lines.get(0));
+            assertEquals("ELEC 344,,Lab Report,05/30/20,,Alternating labs/tutorials", lines.get(1));
 
         } catch (IOException e) {
             fail("IOException should not have been thrown");

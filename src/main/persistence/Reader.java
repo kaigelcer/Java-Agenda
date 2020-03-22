@@ -47,11 +47,11 @@ public class Reader {
         return new ArrayList<>(Arrays.asList(splits));
     }
 
-    // REQUIRES: components has size 4 where element 0 represents the
-    // id of the next account to be constructed, element 1 represents
-    // the id, elements 2 represents the name and element 3 represents
-    // the balance of the account to be constructed
-    // EFFECTS: returns an account constructed from components
+    // REQUIRES: components has size 3 where element 0 represents the
+    // name of the next note to be constructed, element 1 represents
+    // a LinkedList in which every two items are the name and date of an agenda item,
+    // and elements 2 represents additional info for the note
+    // EFFECTS: returns a StickyNote constructed from components
     private static StickyNote parseNote(List<String> components) {
         String name = components.get(0);
         try {
@@ -67,10 +67,12 @@ public class Reader {
     private static LinkedList<AgendaItem> parseAgendaItems(String agendaString) throws ParseException {
         LinkedList<AgendaItem> agendaItems = new LinkedList<>();
         List<String> agendaStrings = new ArrayList<>(Arrays.asList(agendaString.split(AGENDA_ITEMS_DELIMITER, -1)));
-        for (int i = 0; i < agendaStrings.size(); i = i + 2) {
-            Calendar cal = Calendar.getInstance();
-            cal.setTime(AgendaItem.SDF.parse(agendaStrings.get(i + 1)));
-            agendaItems.add(new AgendaItem(agendaStrings.get(i), cal));
+        if (agendaStrings.size() > 1) {
+            for (int i = 0; i < agendaStrings.size(); i = i + 2) {
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(AgendaItem.SDF.parse(agendaStrings.get(i + 1)));
+                agendaItems.add(new AgendaItem(agendaStrings.get(i), cal));
+            }
         }
 
         return agendaItems;
