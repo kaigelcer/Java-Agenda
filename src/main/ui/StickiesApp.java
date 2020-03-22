@@ -51,8 +51,8 @@ public class StickiesApp {
     }
 
     private void initializeMainWindow() {
-        JLabel welcomeLabel = new JLabel("Welcome to my Agenda/Notes App. Your notes are stacked in the top left"
-                + " corner of the screen. Have a look!");
+        JLabel welcomeLabel = new JLabel("Welcome to my Agenda/Notes App. Your notes (loaded from file) are "
+                + "stacked in the top left corner of the screen. Have a look!");
         frame.add(panel, BorderLayout.CENTER);
         panel.add(welcomeLabel);
         JButton newNoteButton = new JButton("To create a new note, type the name of your new note below and click"

@@ -13,7 +13,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class StickyNoteUI {
+public class StickyNoteUI extends SoundPlayer {
     public JFrame frame;
     public JPanel panel;
     private StickyNote note;
@@ -66,6 +66,7 @@ public class StickyNoteUI {
                 panel.remove(button);
                 panel.revalidate();
                 panel.repaint();
+                playSound();
             }
         });
         constraints.fill = GridBagConstraints.BOTH;
