@@ -29,3 +29,8 @@ Phase 4: Task 2
 There is a bidirectional association between StickyNote and StickyNoteUI. 
 It is necessary because changes in parts of the UI affect the StickyNote
 object, and changes to the StickyNote object affect the appearance of the UI.
+
+Phase 4: Task 3
+
+- Implemented setConstraints method in StickyNoteUI class that sets all constraints
+for a JElement before adding it to the JPanel.

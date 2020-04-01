@@ -44,14 +44,9 @@ public class StickyNoteUI extends SoundPlayer {
         });
         JLabel label = new JLabel("Additional Info:");
         constraints.fill = GridBagConstraints.BOTH;
-        constraints.gridx = 0;
-        constraints.weightx = 1;
-        constraints.weighty = 1;
-        constraints.gridwidth = 1;
-        constraints.ipady = 40;
+        setConstraints(1, 1, 0, 1, 40);
         panel.add(label, constraints);
-        constraints.gridx = 1;
-        constraints.gridwidth = 2;
+        setConstraints(1, 1, 1, 2, 40);
         panel.add(infoField, constraints);
     }
 
@@ -70,10 +65,7 @@ public class StickyNoteUI extends SoundPlayer {
             }
         });
         constraints.fill = GridBagConstraints.BOTH;
-        constraints.gridx = 2;
-        constraints.weightx = 1;
-        constraints.weighty = 1;
-        constraints.ipady = 0;
+        setConstraints(1, 1, 2, 1, 0);
         panel.add(button, constraints);
     }
 
@@ -87,11 +79,7 @@ public class StickyNoteUI extends SoundPlayer {
             }
         });
         constraints.fill = GridBagConstraints.BOTH;
-        constraints.gridx = 0;
-        constraints.gridwidth = 1;
-        constraints.weightx = 1;
-        constraints.weighty = 1;
-        constraints.ipady = 0;
+        setConstraints(1, 1, 0, 1, 0);
         panel.add(taskField, constraints);
         return taskField;
     }
@@ -113,10 +101,7 @@ public class StickyNoteUI extends SoundPlayer {
             }
         });
         constraints.fill = GridBagConstraints.BOTH;
-        constraints.gridx = 1;
-        constraints.weightx = 1;
-        constraints.weighty = 1;
-        constraints.ipady = 0;
+        setConstraints(1, 1, 1, 1, 0);
         panel.add(dateField, constraints);
         return dateField;
     }
@@ -130,11 +115,7 @@ public class StickyNoteUI extends SoundPlayer {
             }
         });
         constraints.fill = GridBagConstraints.BOTH;
-        constraints.gridx = 0;
-        constraints.weightx = 1;
-        constraints.weighty = 1;
-        constraints.gridwidth = 3;
-        constraints.ipady = 0;
+        setConstraints(1, 1, 0, 3, 0);
         panel.add(button, constraints);
     }
 
@@ -143,15 +124,21 @@ public class StickyNoteUI extends SoundPlayer {
         JLabel dateLabel = new JLabel("DueDate");
         JLabel deleteLabel = new JLabel("");
         constraints.fill = GridBagConstraints.BOTH;
-        constraints.weightx = 1;
-        constraints.weighty = 1;
-        constraints.gridx = 0;
+        setConstraints(1, 1, 0, 1, 0);
         panel.add(taskLabel, constraints);
         constraints.gridx = 1;
         panel.add(dateLabel, constraints);
         constraints.gridx = 2;
         panel.add(deleteLabel, constraints);
 
+    }
+
+    public void setConstraints(int weightX, int weightY, int gridX, int gridWidth, int padding) {
+        constraints.weightx = weightX;
+        constraints.weighty = weightY;
+        constraints.gridx = gridX;
+        constraints.gridwidth = gridWidth;
+        constraints.ipady = padding;
     }
 
 }
