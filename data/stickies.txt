@@ -1,3 +1,4 @@
-Math,,Webwork,01/02/03,Notes,01/02/02,,Math is cool
+Math,,Webwork!,01/02/03,Notes,01/02/02,,Math is very cool
 CPSC,,Project,01/01/01,,Very fun course
-CRWR,,Write Stuff,03/03/03,,No final exam
+CRWR,,Write More Stuff,03/25/20,,No final exam
+Physics,,Blah Blah,03/24/20,,Wahoo

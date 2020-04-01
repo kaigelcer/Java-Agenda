@@ -23,3 +23,9 @@ their own name/title
 
 - As a user, I want to be able to save my sticky notes to file
 - As a user, I want to be able to load stickies from file when program starts
+
+Phase 4: Task 2
+
+There is a bidirectional association between StickyNote and StickyNoteUI. 
+It is necessary because changes in parts of the UI affect the StickyNote
+object, and changes to the StickyNote object affect the appearance of the UI.
